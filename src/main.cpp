@@ -1,18 +1,20 @@
 #include <Arduino.h>
+#include "framebuffer.cpp"
 
-// put function declarations here:
-int myFunction(int, int);
+TFT_eSPI tft = TFT_eSPI();
+const byte led_gpio = 17;
+int offset= 0;
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(115200);
+  tft.init();
+  tft.setRotation(1);
+  tft.fillScreen(TFT_RED);
+  pinMode(led_gpio, OUTPUT);
+  digitalWrite(led_gpio, HIGH);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  tft.println("DAMA");
+  delay(1000);
 }
