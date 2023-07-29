@@ -59,9 +59,9 @@ public:
     }
 
     // Método para convertir el color a formato hexadecimal
-    uint32_t toHex() const
+    uint16_t toHex() const
     {
-        return (r << 16) | (g << 8) | b;
+        return ((r & 0x1F) << 11) | ((g & 0x3F) << 5) | (b & 0x1F);
     }
 
     // Método para leer un color en formato hexadecimal y actualizar los componentes de la clase
