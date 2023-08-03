@@ -46,10 +46,16 @@ void pointBuffer(const Vertex3& vertex)
 }
 
 void lineBuffer(Vector3d start, Vector3d end) {
-    int x0 = start.x();
-    int y0 = start.y();
-    int x1 = end.x();
-    int y1 = end.y();
+    // Obtener el ancho y alto de la pantalla
+    int screenWidth = tft.width();
+    int screenHeight = tft.height();
+
+    // Ajustar las coordenadas x e y de los vértices para que estén centrados en la pantalla
+    int x0 = start.x() + screenWidth / 2;
+    int y0 = start.y() + screenHeight / 2;
+    int x1 = end.x() + screenWidth / 2;
+    int y1 = end.y() + screenHeight / 2;
+
 
     int dx = abs(x1 - x0);
     int dy = abs(y1 - y0);
