@@ -88,3 +88,7 @@ void triangleBuffer(Vector3d A, Vector3d B, Vector3d C){
     lineBuffer(B, C);
     lineBuffer(C, A);
 }
+
+struct Face {
+  std::vector<std::array<int, 3>> vertices;
+};
